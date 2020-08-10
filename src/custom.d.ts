@@ -14,3 +14,11 @@ type TabBarItem = {
     name: string;
     value: string;
 }
+
+type storeState={
+    tagList: TagItem[];
+    recordList: RecordItem[];
+    tagListError: ''|'depulicate';   //联合类型；
+    currentRecord: RecordItem | undefined;
+    recordListError: '' | 'notfound';
+  }
