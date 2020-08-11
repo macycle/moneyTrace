@@ -44,7 +44,7 @@ type TabBarItem = {
         
        
         &.selected{
-            border-bottom: 1px solid #333333;
+            color:white
            
         }
     }

@@ -4,23 +4,26 @@
             <TabBar class-prefix="types" :bars="barsValue" :c-bar.sync="record.type"/>
             <button class="cancel" @click="cancel">取消</button>
        </div>
-
-       <TagList></TagList>
+       <TagList v-if="record.type==='-'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="tagList" class="tag-list"/>
+       <TagList v-else-if="record.type === '+'" class-prefix="money" :selected-tag.sync="record.tag" :tag-list="incomeTags" class="tag-list"/>
     </div>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue';
-import {Component} from 'vue-property-decorator';
+import {Component, Watch} from 'vue-property-decorator';
 import TabBar from '@/components/TabBar.vue';
 import clone from '@/lib/clone';
+import TagList from '@/components/Money/TagList.vue';
+import {defaultIncomeTags} from '@/contants/defaultTags';
 
 @Component({
-    components:{TabBar}
+    components:{TabBar,TagList}
 })
     export default class Money extends Vue{
         barsValue=[{name: '支出', value: '-'}, {name: '收入', value: '+'}];
         record: RecordItem =this.initRecord();
+        incomeTag=defaultIncomeTags;
 
         get tagList(): TagItem[]{
             return this.$store.state.tagList;
@@ -41,7 +44,19 @@ import clone from '@/lib/clone';
             this.$store.commit('insertRecord',clone<RecordItem>(this.record));
             this.record=this.initRecord();
             this.$router.replace('/bill')    //TODO
+        }
+
+        @Watch('record.type')
+            onTypeChange(type: string){
+                if(type==='+'){
+                    this.record.tag={name:'salary',value:'工资'};
+                }else if(type==='-'){
+                    this.record.tag={name:"food",value:'饮食'};
+                }
             }
+        
+
+        
 
     }
 </script>
@@ -59,8 +74,21 @@ import clone from '@/lib/clone';
             padding: 24px 16px 8px 16px;
         }
 
+    .cancel{
+        position: absolute;
+        top: 50%;
+        right:0;
+        transform: translateY(-50%);
+        font-size: 14px;
+        padding: 24px 16px 8px 16px;
+    }
 }
 
+.money{
+    .tag-list{
+        padding-bottom: 76+56*4+12px;
+    }
+}
 
 
 </style>

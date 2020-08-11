@@ -1,6 +1,6 @@
 <template>
     <svg>
-        <use :xlink:href="`#${name}`" />
+        <use :xlink:href="'#'+name" />
     </svg>
 </template>
 
@@ -8,7 +8,9 @@
 import Vue from 'vue';
 import {Component, Prop} from 'vue-property-decorator';
 
-const importAll=(requireContext: __WebpackModuleApi.RequireContext)=>requireContext.keys().forEach(requireContext);
+const importAll = (requireContext: __WebpackModuleApi.RequireContext) => {
+  return requireContext.keys().forEach(requireContext);
+};
  try {importAll(require.context('../assets/icons', true, /\.svg$/));} catch (error) {console.log(error);}
 
 @Component
@@ -22,9 +24,9 @@ const importAll=(requireContext: __WebpackModuleApi.RequireContext)=>requireCont
     svg{
         width: 1em;
         height: 1em;
-        vertical-align: -0.15em;
         overflow: hidden;
         fill:currentColor;
+       
     }
 
 </style>
