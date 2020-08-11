@@ -55,12 +55,7 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
             } else {
                 this.complete();
                 this.init();
-                this.output='0';
-                this.dot=true;
-                this.validNumberBeforeDot = 6;
-                this.validNumberAfterDot = 2;
-                this.beforeNumber = 0;
-                this.beforeIndex = 0;
+                
             }
         }
 
