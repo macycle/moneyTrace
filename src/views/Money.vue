@@ -7,7 +7,7 @@
        <TagList v-if="record.type==='-'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="tagList" class="tag-list"/>
        <TagList v-else-if="record.type === '+'" class-prefix="money" :selected-tag.sync="record.tag" :tag-list="incomeTags" class="tag-list"/>
 
-       <Calculator :note.sync='record.note' :amount.sync='record.amount'/>
+       <Calculator class-prefix='money' :note.sync='record.note' :amount.sync='record.amount' @complete="complete"/>
     </div>
 </template>
 
@@ -46,7 +46,7 @@ import Calculator from '@/components/Money/Calculator.vue';
         complete(){
             this.$store.commit('insertRecord',clone<RecordItem>(this.record));
             this.record=this.initRecord();
-            this.$router.replace('/bill')    //TODO
+            //this.$router.replace('/bill')    //TODO
         }
 
         @Watch('record.type')

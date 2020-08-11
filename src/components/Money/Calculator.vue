@@ -10,7 +10,7 @@
 
         <div class="panel">{{output}}</div>
         <div class="number-pad">
-            <button v-for="(name,index) in buttonList" :key="index" :class="name==='ok'" @click="handle(name)">{{name}}</button>
+            <button v-for="(name,index) in buttonList" :key="index" :class="name==='ok' && 'ok'" @click="handle(name)">{{name}}</button>
 
             <button @click="remove">
                 <Icon name='delete' />
@@ -45,17 +45,29 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
         beforeNumber = 0;
         beforeIndex = 0;
         operator = '';
+
         writeNote(note: string) {
             this.$emit('update:note', note);
         }
         handle(button: string) {
-            if (button !== '完成') {
+            if (button !== 'ok') {
                 this.handleInput(button);
             } else {
                 this.complete();
+                this.init();
+                this.output='0';
+                this.dot=true;
+                this.validNumberBeforeDot = 6;
+                this.validNumberAfterDot = 2;
+                this.beforeNumber = 0;
+                this.beforeIndex = 0;
             }
         }
 
+        init(){
+            
+            this.operator = '';
+        }
         handleInput(button: string){
             if (this.output.length >= 21) {
                 return;
@@ -102,9 +114,9 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
         }
 
         handleNumber(num: string){
-            if(this.dot&&this.validNumberBeforeDot > 0){
+            if(this.dot && this.validNumberBeforeDot > 0){
                 this.output+=num;
-                 this.validNumberBeforeDot -= 1;
+                this.validNumberBeforeDot -= 1;
             }else if(!this.dot && this.validNumberAfterDot > 0){
                 this.output+=num;
                 this.validNumberAfterDot -= 1;
@@ -114,7 +126,7 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
         handleOperator(operator: string){
             const last = this.output.slice(-1);
             if('.+-'.indexOf(last)>=0){
-                return new Error('输入错误')
+                return ;
             }else{
                 if(this.operator!==''){
                     this.calculate();
@@ -249,6 +261,7 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
 
          .icon{
              margin-right: 5px;
+             margin-top:3px;
          }
 
          span{
@@ -271,6 +284,48 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
          line-height: 24px;
          font-family: Consolas, monospace;
         text-align: right;
+     }
+
+     .number-pad{
+         @extend %clear-fix;
+
+         button{
+             $h:56px;
+             float:left;
+             width:25%;
+             height:$h;
+             font-size: 16px;
+             border:none;
+
+             &.ok{
+                 float: right;
+                 height: $h*2;
+             }
+
+             $bg:#f2f2f2;
+
+             &:nth-child(1) {
+                    background: $bg;
+                }
+                &:nth-child(2), &:nth-child(5) {
+                    background: darken($bg, 4%);
+                }
+                &:nth-child(3), &:nth-child(6), &:nth-child(9) {
+                    background: darken($bg, 4*2%);
+                }
+                &:nth-child(4), &:nth-child(7), &:nth-child(10), &:nth-child(13) {
+                    background: darken($bg, 4*3%);
+                }
+                &:nth-child(8), &:nth-child(11), &:nth-child(14) {
+                    background: darken($bg, 4*4%);
+                }
+                &:nth-child(15) {
+                    background: darken($bg, 4*5%);
+                }
+                &:nth-child(12) {
+                    background: darken($bg, 4*6%);
+                }
+         }
      }
  }
 </style>
