@@ -46,7 +46,7 @@ import Icon from '@/components/Icon.vue';
                 height: 24px;
             }
             &.selected {
-                color: #ffda47;
+                color: #7C48DB;
             }
         }
     }

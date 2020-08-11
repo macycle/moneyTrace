@@ -66,7 +66,7 @@
                 justify-content: center;
                 align-items: center;
                 &.selected {
-                    background: #7C48DB;
+                    background: #b08fee;
                 }
                 svg {
                     width: 30px;
