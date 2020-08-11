@@ -40,7 +40,7 @@ import clone from '@/lib/clone';
         complete(){
             this.$store.commit('insertRecord',clone<RecordItem>(this.record));
             this.record=this.initRecord();
-            this.$router.replace('/bill')
+            this.$router.replace('/bill')    //TODO
             }
 
     }
