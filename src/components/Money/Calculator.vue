@@ -62,6 +62,12 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
         init(){
             
             this.operator = '';
+            this.output='0';
+            this.dot=true;
+            this.validNumberBeforeDot = 6;
+            this.validNumberAfterDot = 2;
+            this.beforeNumber = 0;
+            this.beforeIndex = 0;
         }
         handleInput(button: string){
             if (this.output.length >= 21) {
