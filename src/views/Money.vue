@@ -7,7 +7,7 @@
        <TagList v-if="record.type==='-'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="tagList" class="tag-list"/>
        <TagList v-else-if="record.type === '+'" class-prefix="money" :selected-tag.sync="record.tag" :tag-list="incomeTags" class="tag-list"/>
 
-       <Calculator />
+       <Calculator :note.sync='record.note' :amount.sync='record.amount'/>
     </div>
 </template>
 
