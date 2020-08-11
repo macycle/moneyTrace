@@ -16,7 +16,7 @@ const defaultIncomeTags = [
 ] as TagItem[];
 
 const foodTags = [
-    {name: 'food', value: '餐饮'},
+    {name: 'food', value: '饮食'},
     {name: 'rice', value: '午餐/晚餐'},
     {name: 'outgoing', value: '外卖'},
     {name: 'vegetables', value: '买菜'},

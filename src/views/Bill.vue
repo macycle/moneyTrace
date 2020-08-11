@@ -9,12 +9,12 @@
                 <div class="calendar">
                     <div class="slideYear">
                         <select v-model="year" class="year">
-                            <option v-for="y in years" :key="y">{{y}}年</option>
+                                <option v-for="y in years" :key="y" :value="y">{{y}}年</option>
                         </select>
                     </div>
                     <div class="month">
                         <select v-model="month" >
-                            <option v-for="m in 12" :key="m">{{beautifyMonth(m)}}</option>
+                            <option v-for="m in 12" :key="m" :value="m">{{beautifyMonth(m)}}</option>
                         </select>
                         <span>月</span>
                     </div>
@@ -86,10 +86,9 @@ type Group={
 })
     export default class Bill extends Vue {
         logo: string=logo;
-        year=window.sessionStorage.getItem('year') || dayjs().year().toString();
-        month=window.sessionStorage.getItem('month') || (dayjs().month() + 1).toString();
-
-
+        year= window.localStorage.getItem('year') || dayjs().year().toString();
+        month=window.localStorage.getItem('month') || (dayjs().month() + 1).toString();
+        
         get years(){   //自己封装一个日期选择器；
             const endYear=dayjs().year();
             let y=1970;
@@ -233,11 +232,11 @@ type Group={
 
         @Watch('year')
         saveYear(year: string) {
-            window.sessionStorage.setItem('year', year);
+            window.localStorage.setItem('year', year);
         }
         @Watch('month')
         saveMonth(month: string) {
-            window.sessionStorage.setItem('month', month);
+            window.localStorage.setItem('month', month);
         }
 
     }
@@ -248,10 +247,10 @@ type Group={
         background: #9563f1;
         .logo {
             img {
+                position:relative;
+                top:10px;
                 height: 30px;
-                vertical-align: top;
-                margin-left: auto;
-                margin-right: auto;
+                margin-bottom:-10px;
             }
         }
         .info {
@@ -260,7 +259,7 @@ type Group={
             padding: 4px 0;
             .label {
                 font-size: 14px;
-                color: #e0bd49;
+                color: white;
                 margin-bottom: 4px;
             }
             .value {
@@ -275,14 +274,14 @@ type Group={
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                .slideYear{ 
-                        .year {
+
+                .year {
                         font-size: 12px;
                         color:#c7c6c3;
                         padding: 0 3px;
                         margin-bottom: 5px;
                     }
-                }
+                
                 
                 .month {
                     font-size: 12px;
@@ -343,6 +342,7 @@ type Group={
                             padding: 4px;
                             border-radius: 50%;
                             margin-right: 16px;
+                            color:white;
                         }
                     }
                 }

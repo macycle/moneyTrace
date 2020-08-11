@@ -87,9 +87,8 @@
         houseTags = houseTags;
         entertainmentTags = entertainmentTags;
         medicalTags = medicalTags;
-        get tagList() {
-            return this.$store.state.tagList;
-        }
+
+      
         back() {
             this.$router.replace('/money');
         }
@@ -114,31 +113,11 @@
             height: 24px;
         }
         &.selected {
-            border: 1px solid $color;
+            border: 1px solid #b08fee;
+            background: transparent;
         }
     }
-    ::v-deep {
-        .main-tags > li:nth-child(4n+0) {
-            .main-tags-item-icon {
-                @include icon(#a4d09f);
-            }
-        }
-        .main-tags > li:nth-child(4n+1) {
-            .main-tags-item-icon {
-                @include icon(#f7d680);
-            }
-        }
-        .main-tags > li:nth-child(4n+2) {
-            .main-tags-item-icon {
-                @include icon(#b84e52);
-            }
-        }
-        .main-tags > li:nth-child(4n+3) {
-            .main-tags-item-icon {
-                @include icon(#5079c8);
-            }
-        }
-    }
+    
     .fixed {
         position: fixed;
         top: 0;
@@ -147,10 +126,11 @@
         background: white;
     }
     .header {
-        background: #ffda47;
+        background: #7C48DB;
+        color:white;
         font-size: 20px;
         line-height: 24px;
-        padding: 12px 16px;
+        padding: 12px 10px;
         border-bottom: 1px solid #dddddd;
         display: flex;
         justify-content: space-between;

@@ -303,7 +303,7 @@ import {Component, Prop, Watch} from 'vue-property-decorator';
                  height: $h*2;
              }
 
-             $bg:#f2f2f2;
+             $bg:#b3bcf0;
 
              &:nth-child(1) {
                     background: $bg;
