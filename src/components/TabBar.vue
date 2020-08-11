@@ -1,6 +1,6 @@
 <template>
     <ul class="tab-bar" :class="{[classPrefix+'-tab-bar']:classPrefix}">
-        <li class="tab-bar-item" :class="{[classPrefix+'-tab-bar-item']:classPrefix,'select':cBar===bar.value}"
+        <li class="tab-bar-item" :class="{[classPrefix+'-tab-bar-item']:classPrefix,'selected':cBar===bar.value}"
         v-for="(bar,index) in bars" :key="index" @click="toggle(bar.value)"
         >
             {{bar.name}}
@@ -44,7 +44,8 @@ type TabBarItem = {
         
        
         &.selected{
-            color:white
+            color:white;
+            font-weight: bold;
            
         }
     }
