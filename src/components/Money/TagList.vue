@@ -67,6 +67,12 @@
                 align-items: center;
                 &.selected {
                     background: #b08fee;
+
+                    svg {
+                    width: 30px;
+                    height: 30px;
+                    color:white
+                }
                 }
                 svg {
                     width: 30px;

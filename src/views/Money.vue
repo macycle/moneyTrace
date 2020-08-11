@@ -26,7 +26,7 @@ import Calculator from '@/components/Money/Calculator.vue';
     export default class Money extends Vue{
         barsValue=[{name: '支出', value: '-'}, {name: '收入', value: '+'}];
         record: RecordItem =this.initRecord();
-        incomeTag=defaultIncomeTags;
+        incomeTags=defaultIncomeTags;
 
         get tagList(): TagItem[]{
             return this.$store.state.tagList;
