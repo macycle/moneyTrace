@@ -130,7 +130,7 @@
         color:white;
         font-size: 20px;
         line-height: 24px;
-        padding: 12px 10px;
+        padding: 16px 10px;
         border-bottom: 1px solid #dddddd;
         display: flex;
         justify-content: space-between;
@@ -143,14 +143,15 @@
                     width: 24px;
                     height: 24px;
                 }
-                background: inherit;
+                
                 border: none;
                 margin-right: 8px;
+                color:white;
             }
         }
         .ok {
             font-size: 16px;
-            color: red;
+            color: white;
             border: none;
             background: inherit;
         }
@@ -168,8 +169,8 @@
                 width: 40px;
                 height: 40px;
                 border-radius: 50%;
-                color: #f7d680;
-                border: 1px solid #f7d680;
+                color: #b08fee;
+                border: 1px solid #b08fee;
                 display: flex;
                 justify-content: center;
                 align-items: center;
