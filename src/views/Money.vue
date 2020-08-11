@@ -6,6 +6,8 @@
        </div>
        <TagList v-if="record.type==='-'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="tagList" class="tag-list"/>
        <TagList v-else-if="record.type === '+'" class-prefix="money" :selected-tag.sync="record.tag" :tag-list="incomeTags" class="tag-list"/>
+
+       <Calculator />
     </div>
 </template>
 
@@ -16,9 +18,10 @@ import TabBar from '@/components/TabBar.vue';
 import clone from '@/lib/clone';
 import TagList from '@/components/Money/TagList.vue';
 import {defaultIncomeTags} from '@/contants/defaultTags';
+import Calculator from '@/components/Money/Calculator.vue';
 
 @Component({
-    components:{TabBar,TagList}
+    components:{TabBar,TagList,Calculator}
 })
     export default class Money extends Vue{
         barsValue=[{name: '支出', value: '-'}, {name: '收入', value: '+'}];
