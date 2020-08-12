@@ -37,7 +37,7 @@
                 <li>
                     <label>
                         <span class="name">备注</span>
-                        <input type="text" v-model="record.note">
+                        <input type="text" v-model="record.note" placeholder="写点备注呀~">
                     </label>
                 </li>
             </ul>
