@@ -51,9 +51,10 @@ import {Component} from 'vue-property-decorator';
 import Icon from '@/components/Icon.vue';
 import dayjs from 'dayjs';
 import clone from '@/lib/clone';
+import DatePicker from '@/components/DatePicker.vue';
 
 @Component({
-    components:{Icon}
+    components:{Icon,DatePicker}
 })
     export default class EditRecord extends Vue {
         record?: RecordItem;    //函数定义的方式，不是对象的定义；

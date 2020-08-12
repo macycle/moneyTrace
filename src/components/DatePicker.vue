@@ -15,7 +15,7 @@
         </div>
 
         <div class="day">
-            <select v-model="day">
+            <select v-model="date">
                 <option v-for="d in days" :key="d" :value="d">{{beautify(d)}}</option>
             </select>
             <span>日</span>
