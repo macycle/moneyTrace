@@ -2,7 +2,7 @@
     <div class="money">
        <div class='types'>
             <TabBar class-prefix="types" :bars="barsValue" :c-bar.sync="record.type"/>
-            <button class="cancel" @click="cancel"><span>取消</span></button>
+            <button class="cancel" @click="cancel">取消</button>
        </div>
        <TagList v-if="record.type==='-'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="tagList" class="tag-list"/>
        <TagList v-else-if="record.type === '+'" class-prefix="money" :dynamic="true" :selected-tag.sync="record.tag" :tag-list="incomeTags" class="tag-list"/>
@@ -68,7 +68,7 @@ import Calculator from '@/components/Money/Calculator.vue';
 @import "~@/assets/styles/style.scss";
 
 .types{
-    background:#7C48DB;
+    background:#9563f1;
     display:flex;
     justify-content: center;
     position: relative;
@@ -82,15 +82,9 @@ import Calculator from '@/components/Money/Calculator.vue';
         top:40%;
         right:0;
         transform: translateY(-50%);
-        font-size: 14px;
-        padding: 24px 4px 8px 16px;
-        span{
-            background-color: rgba(71, 39, 175, 0.739);
-            padding: 4px 12px;
-            border-radius: 4px;
-            color:white;
-            font: $font-song;
-        }
+        font-size: 16px;
+        padding: 24px 14px 8px 16px;
+        color:white;
     }
 }
 
