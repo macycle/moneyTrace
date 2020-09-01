@@ -1,29 +1,12 @@
-# money-trace
+## 贝迹记账
+
+# 项目搬家啦！！！
+
+[预览地址](http://macycle.gitee.io/accountbook/#/bill)
+[源码地址](https://gitee.com/macycle/bookkeeping_of_shell_trace)
 
 ## Project setup
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
